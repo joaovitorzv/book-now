@@ -2,10 +2,6 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-type Props = {
-  logged?: boolean;
-}
-
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -58,6 +54,7 @@ export default createGlobalStyle`
     --details-yellow: #FFB800;
     --gray: #3C3C3C;
     --dark-gray: #282828;
+    --counter: #878787;
     --red: #C60000;
   }
 `;
@@ -76,7 +73,7 @@ export const HighlightButton = styled.button`
   background: none;
   border: none;
   
-  color: ${(props: Props) => (props.logged ? 'var(--red)' : 'var(--secondary)')};
+  color: var(--red);
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -85,8 +82,8 @@ export const HighlightButton = styled.button`
   list-style: none;
 `;
 
-export const RadiusButton = styled.button`
-  width: 150px;
+export const RadiusButton = styled(Link)`
+  width: 200px;
   color: var(--gray);
   background-color: var(--primary);
   display: flex;
@@ -98,6 +95,7 @@ export const RadiusButton = styled.button`
   border-radius: 5px;
 
   cursor: pointer;
+  text-decoration: none;
 
   svg {
     margin-right: 10px;
@@ -110,7 +108,25 @@ export const RadiusButton = styled.button`
     }
   }
 
-  @media (max-width: 350px) {
+  @media (max-width: 650px) {
     width: 100%;
   }
+`;
+
+export const BlackButton = styled.button`
+  background-color: var(--dark-gray);
+  color: white;
+
+  padding: 15px;
+  border: none;
+  font-size: 11px;
+`;
+
+export const Input = styled.input`
+  border: 2px solid #000;
+  background-color: var(--secondary-white);
+  
+  padding: 10px;
+  color: var(--secondary);
+  font-size: 14px;
 `;

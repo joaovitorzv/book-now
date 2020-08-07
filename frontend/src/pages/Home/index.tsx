@@ -3,7 +3,9 @@ import React from 'react';
 import { Container } from './styles';
 import { RadiusButton } from '../../GlobalStyles';
 
-import { Header } from '../../components/Header';
+import Header from '../../components/Header';
+import Item from '../../components/Item';
+import Bag from '../../components/Bag';
 
 import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRight'
 
@@ -20,7 +22,7 @@ const Home: React.FC = () => {
         <div className="new-users">
           <h4>RECEBA SEUS LIVROS COM QUALIDADE</h4>
 
-          <RadiusButton>
+          <RadiusButton to="/login">
             Cria sua conta agora
 
             <KeyboardArrowRight size={30} color="#000" />
@@ -29,8 +31,16 @@ const Home: React.FC = () => {
 
         <div className="best-sellers">
           <h4>OS MAIS AMADOS</h4>
+
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
         </div>
 
+
+        <Bag />
       </Container>
     </>
   )

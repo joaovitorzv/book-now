@@ -2,13 +2,68 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  
+  justify-content: space-between;
+  width: 95vw;
+
+  padding: 0 10px;
+  margin-top: 10%;
 
   .book-cover {
-    width: 150px;
-    background: url('https://lh3.googleusercontent.com/proxy/-9yAGL52QFUutmkmeNCAficjFsFIMxLbJlnoJaHfJpbnbhB3r4htRQJaBq3qjCMtyRqoKHgafRtkNbAQgiUZNoP20liFP4cJAv2UpcEr53qPtK68esdF') no-repeat center center;
-    background-size: cover;
+    height: 200px;
+    width: 300px;
+    background: url('https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg') no-repeat center center;
+    background-size: contain;
+  }
 
+  .book-info {
+    padding-left: 10px;
+    
+    .price-container {
+      text-align: right;
 
+      h3 {
+        font-size: 1.8em;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .book-description {
+      margin: 10px 0;
+
+      h3 {
+        font-size: 1.2em;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      span {
+        color: var(--dark-gray);
+      }
+
+      p {
+        font-size: 14px;
+
+        color: #999999;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+    }
   }
 `;

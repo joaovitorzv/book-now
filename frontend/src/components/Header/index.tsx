@@ -1,17 +1,22 @@
 import React from 'react';
 
 import { Container, MenuButton } from './styles';
+import { Anchor } from '../../GlobalStyles';
 
 import Menu from '../Menu';
 
-export const Header: React.FC = () => {
+const Header: React.FC = () => {
 
   return (
     <Container>
-      <h1>BOOKnow</h1>
+      <Anchor to="/">
+        <h1>BOOKnow</h1>
+      </Anchor>
       <MenuButton>
         <Menu />
       </MenuButton>
     </Container>
   );
 }
+
+export default Header;

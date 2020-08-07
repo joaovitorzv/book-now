@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  padding-bottom: 15%;
 
   .delivery-bonus {
     padding: 20px 10px;
@@ -21,7 +22,7 @@ export const Container = styled.div`
     padding: 20px 10px;
     background-color: var(--gray);
 
-    button {
+    a {
       margin-top: 20px;
     }
   }

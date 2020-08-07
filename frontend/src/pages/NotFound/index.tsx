@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Gif } from './styles';
 import { Anchor } from '../../GlobalStyles';
 
-import { Header } from '../../components/Header';
+import Header from '../../components/Header';
 
 const NotFound: React.FC = () => {
   return (

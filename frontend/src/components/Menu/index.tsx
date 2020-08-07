@@ -6,7 +6,7 @@ import { Anchor, HighlightButton } from '../../GlobalStyles';
 const Menu: React.FC = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const isAuth = true;
+  const isAuth = false;
 
   return (
     <Container>
@@ -14,7 +14,7 @@ const Menu: React.FC = () => {
 
       <MenuContent isOpen={openMenu} >
         <div className="menu-header">
-          <h3>João vitor</h3>
+          <h3>Olá, João vitor</h3>
           <Close onClick={() => setOpenMenu(false)} />
         </div>
 
@@ -24,11 +24,16 @@ const Menu: React.FC = () => {
               <li>{isAuth ? "Conta" : "Fazer login"}</li>
             </Anchor>
             {isAuth && (
-              <Anchor to="/"><li>Pedidos</li></Anchor>
+              <Anchor to="/orders"><li>Pedidos</li></Anchor>
             )}
-            <HighlightButton onClick={() => console.log('ckick')} logged={isAuth}>
-              <li>{isAuth ? "Sair" : "Criar conta"}</li>
-            </HighlightButton>
+
+            {isAuth ? (
+              <HighlightButton onClick={() => console.log('ckick')}>
+                Sair
+              </HighlightButton>
+            ) : (
+                <Anchor className="signup-link" to="/signup">Criar conta</Anchor>
+              )}
           </ul>
         </div>
 

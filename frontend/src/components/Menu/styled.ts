@@ -28,6 +28,8 @@ export const Close = styled(CloseOutline)`
 `;
 
 export const MenuContent = styled.div`
+  z-index: 5;
+
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -39,7 +41,6 @@ export const MenuContent = styled.div`
   background-color: var(--primary);
 
   .menu-header {
-    border: 1px solid red;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -61,6 +62,17 @@ export const MenuContent = styled.div`
       font-size: 1.5em;
 
       margin-bottom: 3%;
+    }
+
+    .signup-link {
+      font-size: 2em;
+      font-weight: bold;
+      color: var(--secondary);
+    }
+
+    button {
+      font-size: 2em;
+      font-weight: bold;
     }
   }
 `;

@@ -13,7 +13,7 @@ export const Container = styled.div`
 
   padding: 10px;
 
-  > h1 {
+  h1 {
     color: var(--secondary);
   }
 `;
