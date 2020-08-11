@@ -40,5 +40,33 @@ export const Container = styled.div`
       color: var(--secondary);
       font-size: 16px;
     }
+
+    @media (min-width: 450px) {
+      button {
+        padding: 20px;
+        width: 350px;
+      }
+    }
+  }
+
+  @media (min-width: 450px) {
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+
+    .form-actions {
+      align-items: center;
+      width: 100%;
+    }
+
+    input {
+      width: 450px;
+      padding: 15px;
+      font-size: 16px;
+    }
   }
 `;

@@ -12,12 +12,13 @@ const Login: React.FC = () => {
     <>
       <Header />
       <Container>
-        <h2>Entre na sua conta</h2>
-
         <form>
+          <div className="inputs">
+            <h2>Entre na sua conta</h2>
 
-          <Input placeholder="Email" type="email" />
-          <Input placeholder="Senha" type="password" />
+            <Input placeholder="Email" type="email" />
+            <Input placeholder="Senha" type="password" />
+          </div>
 
           <div className="form-actions">
             <BlackButton>Entrar <KeyboardArrowRight size={30} /></BlackButton>

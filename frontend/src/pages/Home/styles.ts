@@ -16,6 +16,10 @@ export const Container = styled.div`
       font-size: 34px;
       color: var(--primary);
     }
+
+    @media (min-width: 650px) {
+      padding: 30px;
+    }
   }
 
   .new-users {
@@ -24,6 +28,20 @@ export const Container = styled.div`
 
     a {
       margin-top: 20px;
+    }
+
+    @media (min-width: 650px) {
+      padding: 30px;
+    }
+  }
+
+  .section-title {
+    margin-top: 10px;
+    text-align: center;
+
+    h4 {
+      color: var(--secondary);
+      padding: 2%;
     }
   }
 
@@ -34,9 +52,22 @@ export const Container = styled.div`
 
     padding: 5px;
     
-    h4 {
-      color: var(--secondary);
-      padding: 2%;
+    @media (min-width: 650px) {
+
+      width: 100%;
+      display: inline-grid;
+      justify-items: center;
+    align-items: center;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+
+
+    @media (min-width: 1250px) {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-rows: auto;
+
     }
   }
 `;

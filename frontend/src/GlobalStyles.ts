@@ -23,6 +23,10 @@ export default createGlobalStyle`
     font-size: 16px;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
@@ -83,7 +87,7 @@ export const HighlightButton = styled.button`
 `;
 
 export const RadiusButton = styled(Link)`
-  width: 200px;
+  width: 240px;
   color: var(--gray);
   background-color: var(--primary);
   display: flex;
@@ -97,13 +101,14 @@ export const RadiusButton = styled(Link)`
   cursor: pointer;
   text-decoration: none;
 
-  svg {
-    margin-right: 10px;
+
+  div {
+    width: 40px;
   }
 
   &:hover {
     svg {
-      margin-right: 0;
+      margin-left: 10px;
       transition-duration: 300ms;
     }
   }
@@ -111,6 +116,7 @@ export const RadiusButton = styled(Link)`
   @media (max-width: 650px) {
     width: 100%;
   }
+
 `;
 
 export const BlackButton = styled.button`

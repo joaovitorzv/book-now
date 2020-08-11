@@ -5,6 +5,14 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 95vw;
 
+  @media (min-width: 650px) {
+    width: 320px;
+  }
+
+  @media (min-width: 800px) {
+    min-width: 380px;
+  }
+
   padding: 0 10px;
   margin-top: 10%;
 

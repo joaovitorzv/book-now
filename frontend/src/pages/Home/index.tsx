@@ -24,14 +24,17 @@ const Home: React.FC = () => {
 
           <RadiusButton to="/login">
             Cria sua conta agora
-
-            <KeyboardArrowRight size={30} color="#000" />
+            <div>
+              <KeyboardArrowRight size={30} color="#000" />
+            </div>
           </RadiusButton>
         </div>
 
-        <div className="best-sellers">
+        <div className="section-title">
           <h4>OS MAIS AMADOS</h4>
+        </div>
 
+        <div className="best-sellers">
           <Item />
           <Item />
           <Item />

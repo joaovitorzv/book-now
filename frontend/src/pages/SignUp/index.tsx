@@ -12,12 +12,17 @@ const SignUp: React.FC = () => {
     <>
       <Header />
       <Container>
-        <h2>Entre na sua conta</h2>
+
 
         <form>
-          <Input placeholder="Nome completo" type="text" />
-          <Input placeholder="Email" type="email" />
-          <Input placeholder="Senha" type="password" />
+          <div className="inputs">
+            <h2>Entre na sua conta</h2>
+
+            <Input placeholder="Nome completo" type="text" />
+            <Input placeholder="Email" type="email" />
+            <Input placeholder="Senha" type="password" />
+          </div>
+
 
           <div className="form-actions">
             <BlackButton>Criar <KeyboardArrowRight size={30} /></BlackButton>

@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+export type Props = {
+  isOpenBag: boolean;
+}
+
 export const BagSlide = styled.div`
-  display: flex;
+  display:  ${(props: Props) => props.isOpenBag ? 'flex' : 'none'};
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -28,5 +32,9 @@ export const BagSlide = styled.div`
 
   .showbag {
     text-decoration: underline;
+  }
+
+  @media (min-width: 650px) {
+    padding: 20px 30px; 
   }
 `;

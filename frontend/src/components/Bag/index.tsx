@@ -5,10 +5,10 @@ import { BagSlide } from './styles';
 import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRight'
 
 const Bag: React.FC = () => {
-  const [openBag, setOpenBag] = useState(false);
+  const [openBag, setOpenBag] = useState(true);
 
   return (
-    <BagSlide>
+    <BagSlide isOpenBag={openBag}>
       <div className="bag-info">
         <p><button onClick={() => { }} className="showbag">2 Items</button>  na sua sacola</p>
         <p>Total: <strong>R$ 39,70</strong></p>
