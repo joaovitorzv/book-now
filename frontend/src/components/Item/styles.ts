@@ -31,6 +31,10 @@ export const Container = styled.div`
 
       h3 {
         font-size: 1.8em;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
       }
 
       span {

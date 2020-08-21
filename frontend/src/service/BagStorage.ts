@@ -17,12 +17,12 @@ class BagStorage {
     localStorage.setItem(this.key, JSON.stringify(books || []));
   }
 
-  public addBookToCart(book: Book): void {
+  public addBookToBag(book: Book): void {
     const books = [...this.getBooksBag(), book];
     this.setBooksToBag(books);
   }
 
-  public removeBookOfCart(id: string = '0'): void {
+  public removeBookOfBag(id: string = '0'): void {
     const products = this.getBooksBag().filter(book => book.id !== id);
     this.setBooksToBag(products);
   }

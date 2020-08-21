@@ -32,6 +32,7 @@ export const BagSlide = styled.div`
 
   .showbag {
     text-decoration: underline;
+    margin-right: 5px;
   }
 
   @media (min-width: 650px) {
