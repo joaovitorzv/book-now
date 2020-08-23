@@ -2,6 +2,10 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
+type Props = {
+  invertedAction?: boolean;
+}
+
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -120,8 +124,8 @@ export const RadiusButton = styled(Link)`
 `;
 
 export const BlackButton = styled.button`
-  background-color: var(--dark-gray);
-  color: white;
+  background-color: ${(props: Props) => props.invertedAction ? "var(--red)" : "var(--dark-gray)"};
+  color: var(--secondary-white);
 
   padding: 15px;
   border: none;

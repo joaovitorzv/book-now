@@ -8,15 +8,15 @@ import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRi
 
 const Bag: React.FC = () => {
   const { books } = useContext<BagContextManager>(BagContext);
-  const [openBag, setOpenBag] = useState(true);
   const haveBooks = books.length > 0;
-  console.log(books);
+  const [openBag, setOpenBag] = useState(haveBooks);
 
   const totalBagValue = haveBooks
     ? books
       .map(book => book.price || 0)
       .reduce((accumulator, currentValue) => accumulator + currentValue)
     : 0;
+
   return (
     <BagSlide isOpenBag={openBag}>
       <div className="bag-info">

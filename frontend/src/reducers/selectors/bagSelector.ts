@@ -14,7 +14,6 @@ export function removeSelect(books: Book[], id = ''): Book[] {
 export function addSelect(books: Book[], addedBook?: Book): Book[] {
   if (addedBook && !books.find(book => book.id === addedBook.id)) {
     BagStorage.addBookToBag(addedBook);
-    console.log('caiu no conto')
     return [...books, addedBook];
   }
   return books;

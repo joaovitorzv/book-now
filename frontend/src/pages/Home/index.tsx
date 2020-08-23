@@ -71,7 +71,7 @@ const Home: React.FC = () => {
       category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
     },
   ]
-  const { addItem } = useContext<BagContextManager>(BagContext);
+  const { addItem, removeItem, hasInTheBag } = useContext<BagContextManager>(BagContext);
 
   return (
     <>
@@ -103,6 +103,8 @@ const Home: React.FC = () => {
               key={book.id}
               book={book}
               onAddToBag={addItem}
+              onRemove={removeItem}
+              hasInTheBag={hasInTheBag(book)}
             />
           ))}
         </div>
