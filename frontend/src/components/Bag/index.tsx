@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import BagContextManager from './context/BagContextManager';
 import BagContext from './context/BagContext';
@@ -16,6 +16,10 @@ const Bag: React.FC = () => {
       .map(book => book.price || 0)
       .reduce((accumulator, currentValue) => accumulator + currentValue)
     : 0;
+
+  useEffect(() => {
+    haveBooks ? setOpenBag(true) : setOpenBag(false);
+  }, [haveBooks])
 
   return (
     <BagSlide isOpenBag={openBag}>
