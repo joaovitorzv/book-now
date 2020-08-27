@@ -31,5 +31,14 @@ export const Container = styled.div`
       font-size: 1.4em;
       margin-top: 10px;
     }
+    
+    .underline-btn {
+      background-color: transparent;
+      border: none;
+      
+      font-weight: 400;
+      color: var(--counter);
+      text-decoration: underline;
+    }
   }
 `;

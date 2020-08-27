@@ -22,9 +22,9 @@ export const BagSlide = styled.div`
     font-size: .8rem;
   }
 
-  button {
+  a {
     color: var(--primary);
-    font-size: .9rem;
+    font-weight: bold;
     
     background-color: transparent;
     border: none;

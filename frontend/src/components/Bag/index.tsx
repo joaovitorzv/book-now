@@ -3,7 +3,10 @@ import React, { useState, useContext, useEffect } from 'react';
 import BagContextManager from './context/BagContextManager';
 import BagContext from './context/BagContext';
 
+import { getTotalBagValue } from '../../utils/bagUtils'
+
 import { BagSlide } from './styles';
+import { Anchor } from '../../GlobalStyles';
 import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRight'
 
 const Bag: React.FC = () => {
@@ -12,9 +15,7 @@ const Bag: React.FC = () => {
   const [openBag, setOpenBag] = useState(haveBooks);
 
   const totalBagValue = haveBooks
-    ? books
-      .map(book => book.price || 0)
-      .reduce((accumulator, currentValue) => accumulator + currentValue)
+    ? getTotalBagValue(books)
     : 0;
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const Bag: React.FC = () => {
       </div>
 
       <div className="bag-action">
-        <button>Finalizar compra <KeyboardArrowRight size={25} /></button>
+        <Anchor to="/order">Finalizar compra <KeyboardArrowRight size={25} /></Anchor>
       </div>
     </BagSlide>
   );
