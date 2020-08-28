@@ -18,7 +18,12 @@ class BagStorage {
   }
 
   public addBookToBag(book: Book): void {
-    const books = [...this.getBooksBag(), book];
+    let books = [...this.getBooksBag()];
+    if (books.find(b => b.id === book.id)) {
+      console.log('Caiu no returne');
+      return;
+    }
+    books = [...this.getBooksBag(), book]
     this.setBooksToBag(books);
   }
 
