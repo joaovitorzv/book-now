@@ -15,7 +15,7 @@ import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRi
 const Home: React.FC = () => {
   const books = [
     {
-      id: '1b',
+      id: 'a',
       title: "Harry potter and the sorcerers stone",
       author: "JK Rolling",
       price: 19.90,
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
       category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
     },
     {
-      id: '2b',
+      id: 'b',
       title: "Harry potter and the sorcerers stone",
       author: "JK Rolling",
       price: 19.90,
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
     },
     {
-      id: '3b',
+      id: 'c',
       title: "Harry potter and the sorcerers stone",
       author: "JK Rolling",
       price: 19.90,
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
       category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
     },
     {
-      id: '4b',
+      id: 'd',
       title: "Harry potter and the sorcerers stone",
       author: "JK Rolling",
       price: 19.90,
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
     },
     {
-      id: '6b',
+      id: 'e',
       title: "Harry potter and the sorcerers stone",
       author: "JK Rolling",
       price: 19.90,
@@ -55,7 +55,7 @@ const Home: React.FC = () => {
       category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
     },
     {
-      id: '5b',
+      id: 'f',
       title: "Harry potter and the sorcerers stone",
       author: "JK Rolling",
       price: 19.90,
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
       category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
     },
     {
-      id: '7b',
+      id: 'g',
       title: "Harry potter and the sorcerers stone at the job",
       author: "JK Rolling",
       price: 19.90,

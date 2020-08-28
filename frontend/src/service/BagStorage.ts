@@ -23,8 +23,8 @@ class BagStorage {
   }
 
   public removeBookOfBag(id: string = '0'): void {
-    const products = this.getBooksBag().filter(book => book.id !== id);
-    this.setBooksToBag(products);
+    const books = this.getBooksBag().filter(book => book.id !== id);
+    this.setBooksToBag(books);
   }
 
   public clearBag(): void {

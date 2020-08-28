@@ -22,7 +22,11 @@ const Order: React.FC = () => {
 
                 <div className="items-container">
                   {books.map(book => (
-                    <ItemList book={book} onRemove={removeItem} />
+                    <ItemList
+                      key={book.id}
+                      book={book}
+                      onRemove={removeItem}
+                    />
                   ))}
                 </div>
               </div>

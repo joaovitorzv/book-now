@@ -12,7 +12,7 @@ interface BagState {
   books: Book[];
 }
 
-export default function BagReducer(state: BagState, action: BagAction) {
+export default function BagReducer(state: BagState, action: BagAction): BagState {
   switch (action.type) {
     case TYPES.BAG_CLEAR:
       return {
