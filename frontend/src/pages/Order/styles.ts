@@ -2,14 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 10px;
-  padding-bottom: 100px;
 
   max-width: 1250px;
   margin: 0 auto;
-
   overflow: hidden;
 
-  @media (min-width: 450px) {
+  @media (min-width: 700px) {
     padding-bottom: 0;
     display: flex;
     flex-direction: row;
@@ -30,7 +28,11 @@ export const Container = styled.div`
 
 
   .items-list { 
-    width: 60%;
+    width: 100%;
+
+    @media (min-width: 700px) {
+      width: 60%;
+    }
 
     .items-container {
       margin-top: 2px;

@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: fixed;
+  background-color: var(--primary);
   bottom: 0;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-left: 5%;
   width: 98%;
-  
+
   button {
     font-size: 18px;
     padding: 8%;
@@ -33,6 +33,11 @@ export const Container = styled.div`
       padding: 20px;
       width: 350px;
     }
+  }
+
+  @media (max-width: 700px) {
+    margin-left: 0;
+    width: 93vw;
   }
 }
 
@@ -60,6 +65,10 @@ export const Container = styled.div`
 .checkout-details {
   margin-bottom: 20px;
   width: 350px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 
   display: flex;
   flex-direction: column;
