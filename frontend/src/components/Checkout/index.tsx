@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import { Container } from './styles';
 
 import { BlackButton } from '../../GlobalStyles';
 import { BagCheck } from '@styled-icons/bootstrap/BagCheck'
 
-import Book from '../../types/Book';
+import BagContext from '../Bag/context/BagContext';
 import { getTotalBagValue } from '../../utils/bagUtils';
 
-const Checkout: React.FC<{
-  books: Book[]
-}> = ({ books }) => {
-  const [totalBagValue] = useState(getTotalBagValue(books));
-  const delivery = 14.75;
-  const [totalOrder] = useState(totalBagValue + delivery);
+
+const delivery = {
+  defaultPrice: 14.75,
+  discountAbove: 70,
+}
+
+const Checkout: React.FC = () => {
+  const { books } = useContext(BagContext);
+
+  const totalBagValue = getTotalBagValue(books);
+  const totalDelivery = totalBagValue > delivery.discountAbove ? 0 : delivery.defaultPrice;
+  const totalOrder = totalBagValue + totalDelivery;
 
   return (
     <Container>
@@ -35,7 +41,7 @@ const Checkout: React.FC<{
         <div className="detail">
           <p>Frete</p>
           <span>
-            {delivery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            {totalDelivery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
           </span>
         </div>
 

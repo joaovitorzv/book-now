@@ -30,7 +30,7 @@ const Order: React.FC = () => {
                   ))}
                 </div>
               </div>
-              <Checkout books={books} />
+              <Checkout />
             </>)
           : (
             <h2>Voce não tem items na sua sacola :(</h2>
