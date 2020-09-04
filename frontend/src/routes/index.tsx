@@ -6,15 +6,17 @@ import PublicRoute from './PublicRoute';
 
 import Home from '../pages/Home';
 import Order from '../pages/Order';
+import Orders from '../pages/Orders';
 import NotFound from '../pages/NotFound';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 
 const Routes: React.FC = () => (
   <Switch>
-    <PublicRoute path="/" exact component={Home} />
     <PrivateRoute path="/order" component={Order} />
+    <PrivateRoute path="/orders" component={Orders} />
 
+    <PublicRoute path="/" exact component={Home} />
     <PublicRoute path="/login" component={Login} isRestricted />
     <PublicRoute path="/signup" component={SignUp} isRestricted />
 

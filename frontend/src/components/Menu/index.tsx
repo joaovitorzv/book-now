@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Container, Hamburger, MenuContent, Close } from './styled';
 import { Anchor, HighlightButton } from '../../GlobalStyles';
 
 const Menu: React.FC = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const isAuth = false;
+  const { user, signOut } = useAuth();
 
   return (
     <Container>
@@ -14,21 +16,26 @@ const Menu: React.FC = () => {
 
       <MenuContent isOpen={openMenu} >
         <div className="menu-header">
-          <h3>Olá, João vitor</h3>
+          {user && (
+            <h3>Olá, {user.name}</h3>
+          )}
           <Close onClick={() => setOpenMenu(false)} />
         </div>
 
         <div className="menu-content">
           <ul>
-            <Anchor to={isAuth ? "/account" : "/login"}>
-              <li>{isAuth ? "Conta" : "Fazer login"}</li>
-            </Anchor>
-            {isAuth && (
-              <Anchor to="/orders"><li>Pedidos</li></Anchor>
+            {!user && (
+              <Anchor to="/login">
+                <li>Fazer login</li>
+              </Anchor>
             )}
 
-            {isAuth ? (
-              <HighlightButton onClick={() => console.log('ckick')}>
+            {user && (
+              <Anchor onClick={() => setOpenMenu(false)} to="/orders"><li>Pedidos</li></Anchor>
+            )}
+
+            {user ? (
+              <HighlightButton onClick={() => signOut()}>
                 Sair
               </HighlightButton>
             ) : (
@@ -38,7 +45,7 @@ const Menu: React.FC = () => {
         </div>
 
       </MenuContent>
-    </Container>
+    </Container >
   );
 }
 

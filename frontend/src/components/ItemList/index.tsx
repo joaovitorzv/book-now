@@ -6,7 +6,7 @@ import Book from '../../types/Book';
 
 const ItemList: React.FC<{
   book: Book;
-  onRemove: Function;
+  onRemove?: Function;
 }> = ({ book, onRemove }) => {
   return (
     <Container>
@@ -19,7 +19,7 @@ const ItemList: React.FC<{
           {book.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', })}
         </h3>
 
-        <button className="underline-btn" onClick={() => onRemove(book.id)}>remover</button>
+        {onRemove && <button className="underline-btn" onClick={() => onRemove(book.id)}>remover</button>}
       </div>
     </Container>
   )

@@ -148,3 +148,12 @@ export const ErrorText = styled.p`
   margin-top: 5px;
   align-self: left;
 `;
+
+export const BookCover = styled.div`
+  height: 100px;
+  width: 80px;
+  margin-right: 15px;
+
+  background: url('https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg') no-repeat center center;
+  background-size: contain;
+`;
