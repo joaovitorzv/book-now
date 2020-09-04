@@ -18,7 +18,7 @@ interface SignInCredentials {
 
 interface AuthContextData {
   user: User;
-  signIn(credentials: SignInCredentials): void;
+  signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
 }
 
@@ -29,8 +29,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     const token = localStorage.getItem('@booknow:token');
     const user = localStorage.getItem('@booknow:user');
 
-    if (user && token) {
-      return { token, user: JSON.parse(token) };
+    if (token && user) {
+      return { token, user: JSON.parse(user) };
     }
 
     return {} as AuthState;

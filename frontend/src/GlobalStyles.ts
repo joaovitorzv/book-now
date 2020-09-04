@@ -140,3 +140,11 @@ export const Input = styled.input`
   color: var(--secondary);
   font-size: 14px;
 `;
+
+export const ErrorText = styled.p`
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--red);
+  margin-top: 5px;
+  align-self: left;
+`;
