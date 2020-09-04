@@ -36,7 +36,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     return {} as AuthState;
   });
 
-  const signIn = useCallback(({ email, password }) => {
+
+  const signIn = useCallback(async ({ email, password }) => {
     // user api session request TODO
     const data = {
       token: 'usertoken123456',
@@ -75,8 +76,11 @@ export function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
 
   if (!context) {
-    throw new Error('useAuth must be user within an AuthProvider');
+    throw new Error('useAuth must be used within an AuthProvider');
   }
 
   return context;
 }
+
+
+
