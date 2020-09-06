@@ -13,8 +13,8 @@ interface IRequest {
 @injectable()
 class CreateUserService {
   private usersRepository: IUsersRepository;
-  private hashProvider: IHashProvider;
 
+  private hashProvider: IHashProvider;
 
   constructor(
     @inject('UsersRepository')

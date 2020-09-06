@@ -35,6 +35,6 @@ export default function ensureAuthentication(
 
     return next();
   } catch (error) {
-    throw new AppError('Invalid token', 401);
+    throw new AppError('Invalid token.', 401);
   }
 }

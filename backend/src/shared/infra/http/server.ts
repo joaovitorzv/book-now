@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import 'express-async-errors';
 
 import express, { Request, Response, NextFunction } from 'express';
+import ora from 'ora';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import AppError from '../../errors/AppError';
@@ -35,5 +36,5 @@ app.use(
 );
 
 app.listen(3333, () => {
-  console.log('server running');
+  ora('server running').succeed();
 })
