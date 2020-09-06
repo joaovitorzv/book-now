@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  booknow_db:
+    image: postgres
+    container_name: booknow
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: booknow
+    ports:
+      - 5432:5432
