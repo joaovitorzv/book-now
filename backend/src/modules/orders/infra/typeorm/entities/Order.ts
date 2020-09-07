@@ -28,6 +28,9 @@ class Order {
   @Column({ type: 'bigint' })
   order_total: number;
 
+  @Column({ type: 'bigint' })
+  delivery: number;
+
   @CreateDateColumn()
   created_at: Date;
 
