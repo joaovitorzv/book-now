@@ -1,0 +1,83 @@
+import { inject, injectable } from 'tsyringe';
+
+import AppError from '@shared/errors/AppError';
+
+import Order from '@modules/orders/infra/typeorm/entities/Order';
+import Book from '@modules/books/infra/typeorm/entities/Book';
+import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
+import IUsersRepository from '@modules/users/repositories/IUsersRepository';
+import IBooksRepository from '@modules/books/repositories/IBooksRepository';
+import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
+import CreateBookService from '@modules/books/services/CreateBooksService';
+
+enum delivery {
+  defaultPrice = 14.75,
+  discountAbove = 75
+}
+
+interface IRequest {
+  customer_id: string;
+  books_id: string[];
+}
+
+injectable()
+class CreateOrderService {
+  private ordersRepository: IOrdersRepository;
+
+  private usersRepository: IUsersRepository;
+
+  private booksRepository: IBooksRepository;
+
+  constructor(
+    @inject('OrdersRepository')
+    ordersRepository: IOrdersRepository,
+
+    @inject('UsersRepository')
+    usersRepository: IUsersRepository,
+
+    @inject('BooksRepository')
+    booksRepository: IBooksRepository,
+  ) {
+    this.ordersRepository = ordersRepository;
+    this.usersRepository = usersRepository;
+    this.booksRepository = booksRepository;
+  }
+
+  public async execute({
+    customer_id,
+    books_id
+  }: IRequest): Promise<Order> {
+    let books: string[] = [];
+
+    const booksOrdered = await this.booksRepository.findMatchingBooks(books_id)
+    booksOrdered?.map(book => books.push(book.bookCoverUrl))
+
+    if (!booksOrdered) {
+      throw new AppError('Books not available on stock')
+    }
+
+    // test if i will need use user saved on db
+    const customer = await this.usersRepository.findById(customer_id);
+
+    if (!customer) {
+      throw new AppError('Customer not found')
+    }
+
+    const orderTotal = booksOrdered
+      .map(book => book.price || 0)
+      .reduce((accumulator, currentValue) => accumulator + currentValue)
+
+    const totalDelivery = orderTotal > delivery.discountAbove ? 0 : delivery.defaultPrice;
+
+    const order = await this.ordersRepository.create({
+      books_ordered: books,
+      customer_id,
+      delivery: totalDelivery,
+      order_total: orderTotal
+    })
+
+    return order;
+  }
+}
+
+export default CreateOrderService;
