@@ -6,22 +6,25 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { Exclude } from 'class-transformer';
-
-@Entity('users')
-class User {
+@Entity('books')
+class Book {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  name: string;
+  title: string;
 
   @Column()
-  email: string;
+  author: string;
+
+  @Column({ type: 'bigint' })
+  price: number;
 
   @Column()
-  @Exclude()
-  password: string;
+  bookCoverUrl: string;
+
+  @Column()
+  category: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -30,4 +33,4 @@ class User {
   updated_at: Date;
 }
 
-export default User;
+export default Book;
