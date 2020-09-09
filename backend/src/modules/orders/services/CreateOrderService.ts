@@ -3,16 +3,13 @@ import { inject, injectable } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
 
 import Order from '@modules/orders/infra/typeorm/entities/Order';
-import Book from '@modules/books/infra/typeorm/entities/Book';
 import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import IBooksRepository from '@modules/books/repositories/IBooksRepository';
-import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
-import CreateBookService from '@modules/books/services/CreateBooksService';
 
 enum delivery {
   defaultPrice = 14.75,
-  discountAbove = 75
+  discountAbove = 70
 }
 
 interface IRequest {
@@ -20,7 +17,7 @@ interface IRequest {
   books_id: string[];
 }
 
-injectable()
+@injectable()
 class CreateOrderService {
   private ordersRepository: IOrdersRepository;
 
@@ -50,11 +47,12 @@ class CreateOrderService {
     let books: string[] = [];
 
     const booksOrdered = await this.booksRepository.findMatchingBooks(books_id)
-    booksOrdered?.map(book => books.push(book.bookCoverUrl))
 
     if (!booksOrdered) {
       throw new AppError('Books not available on stock')
     }
+
+    booksOrdered.map(book => books.push(book.bookCoverUrl))
 
     // test if i will need use user saved on db
     const customer = await this.usersRepository.findById(customer_id);
