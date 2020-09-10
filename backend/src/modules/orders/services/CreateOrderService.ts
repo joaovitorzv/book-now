@@ -72,7 +72,7 @@ class CreateOrderService {
       customer_id,
       delivery: totalDelivery,
       order_total: orderTotal
-    })
+    });
 
     return order;
   }

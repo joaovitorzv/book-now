@@ -2,7 +2,6 @@ import { getRepository, Repository } from 'typeorm';
 import Order from '@modules/orders/infra/typeorm/entities/Order';
 
 import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
-import IFindAllOrdersFromCustomerDTO from '@modules/orders/dtos/IFindAllOrdersFromCustomerDTO';
 import ICreateOrderDTO from '@modules/orders/dtos/ICreateOrderDTO';
 
 class OrdersRepository implements IOrdersRepository {
@@ -30,7 +29,7 @@ class OrdersRepository implements IOrdersRepository {
     return order;
   }
 
-  public async findAllOrders(customer_id: IFindAllOrdersFromCustomerDTO): Promise<Order[]> {
+  public async findAllOrders(customer_id: string): Promise<Order[]> {
     const findOrders = await this.ormRepository.find({
       where: {
         customer_id
