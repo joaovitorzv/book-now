@@ -19,7 +19,7 @@ export class CreateOrders1599600661538 implements MigrationInterface {
 					},
 					{
 						name: 'books_ordered',
-						type: 'varchar'
+						type: 'text[]'
 					},
 					{
 						name: 'order_total',

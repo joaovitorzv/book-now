@@ -17,6 +17,12 @@ interface IRequest {
   books_id: string[];
 }
 
+interface IGetSum {
+  total: number;
+  num: number;
+}
+
+
 @injectable()
 class CreateOrderService {
   private ordersRepository: IOrdersRepository;
@@ -62,8 +68,10 @@ class CreateOrderService {
     }
 
     const orderTotal = booksOrdered
-      .map(book => book.price || 0)
-      .reduce((accumulator, currentValue) => accumulator + currentValue)
+      .map(book => book.price)
+      .reduce((accumulator, currentValue) => accumulator + Math.round(currentValue), 0);
+
+    console.log(orderTotal);
 
     const totalDelivery = orderTotal > delivery.discountAbove ? 0 : delivery.defaultPrice;
 
