@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 0 10px;
 
+  flex-shrink: 0;
+
   h2 {
     margin: 20px 0 10px 0;
   }
@@ -23,6 +25,7 @@ export const Container = styled.div`
     
     flex-shrink: 0;
     text-align: right;
+
     margin-top: 10vh;
 
     button {
@@ -47,14 +50,14 @@ export const Container = styled.div`
       }
     }
   }
-
+  
   @media (min-width: 450px) {
 
     .inputs {
       display: flex;
       flex-direction: column;
-      align-items: center;
-
+      max-width: 450px;
+      margin: 0 auto;
     }
 
     .form-actions {

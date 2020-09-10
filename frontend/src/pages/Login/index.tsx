@@ -11,6 +11,8 @@ import { Container } from './styles';
 import { Input, BlackButton, Anchor, ErrorText } from '../../GlobalStyles';
 import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRight'
 
+import { IFormStatus, IFormStatusProps, formStatusProps } from '../../types/IFormStatus';
+
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Digite um email válido')
@@ -21,30 +23,6 @@ const validationSchema = Yup.object().shape({
 interface IFormValues {
   email: string;
   password: string;
-}
-
-interface IFormStatus {
-  message: string;
-  type: string;
-}
-
-interface IFormStatusProps {
-  [key: string]: IFormStatus;
-}
-
-const formStatusProps: IFormStatusProps = {
-  success: {
-    message: 'Logado com sucesso',
-    type: 'success'
-  },
-  invalid: {
-    message: 'Credenciais invalidas, tente novamente',
-    type: 'error',
-  },
-  error: {
-    message: 'Algo deu errado, tente novamente',
-    type: 'error'
-  },
 }
 
 const Login: React.FC = () => {
@@ -62,8 +40,9 @@ const Login: React.FC = () => {
       try {
         await signIn({ email: data.email, password: data.password });
       } catch (error) {
-        setFormStatus(formStatusProps.error);
+        setFormStatus(formStatusProps.invalid);
         setDisplayFormStatus(true);
+        setSubmitting(false);
       }
     }, [signIn, history],
   );
@@ -104,9 +83,8 @@ const Login: React.FC = () => {
                     placeholder="Senha"
                   />
                   {errors.password && touched.password && <ErrorText>{errors.password}</ErrorText>}
-
+                  {displayFormStatus && <ErrorText>{formStatus.message}</ErrorText>}
                 </div>
-
                 <div className="form-actions">
                   <BlackButton disabled={isSubmitting} type="submit">
                     {isSubmitting ? "Entrando..." : "Entrar"} <KeyboardArrowRight size={30} />
