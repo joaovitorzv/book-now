@@ -1,5 +1,7 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 
+import api from '../apis/api';
+
 interface User {
   id: string;
   name: string;
@@ -30,6 +32,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     const user = localStorage.getItem('@booknow:user');
 
     if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`
+
       return { token, user: JSON.parse(user) };
     }
 
@@ -38,17 +42,11 @@ export const AuthProvider: React.FC = ({ children }) => {
 
 
   const signIn = useCallback(async ({ email, password }) => {
-    // user api session request TODO
-    const data = {
-      token: 'usertoken123456',
-      user: {
-        id: '123abc',
-        name: 'João vitor',
-        email: 'joaovitor@gmail.com',
-      }
-    }
-
-    const { token, user } = data;
+    const response = await api.post('/sessions', {
+      email,
+      password
+    })
+    const { user, token } = response.data;
 
     localStorage.setItem('@booknow:token', token);
     localStorage.setItem('@booknow:user', JSON.stringify(user));

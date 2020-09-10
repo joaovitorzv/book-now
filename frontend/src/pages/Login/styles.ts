@@ -19,15 +19,14 @@ export const Container = styled.div`
   }
 
   .form-actions {
-    width: 93%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-
-    position: absolute;
-    bottom: 30px;
+    
     flex-shrink: 0;
-
     text-align: right;
+
+    margin-top: 10vh;
 
     button {
       font-size: 18px;

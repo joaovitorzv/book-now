@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 type Props = {
   invertedAction?: boolean;
+  bookCoverUrl?: string;
 }
 
 export default createGlobalStyle`
@@ -150,10 +151,10 @@ export const ErrorText = styled.p`
 `;
 
 export const BookCover = styled.div`
-  height: 100px;
-  width: 80px;
+  height: 200px;
+  width: 200px;
   margin-right: 15px;
 
-  background: url('https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg') no-repeat center center;
+  background: url(${(props: Props) => props.bookCoverUrl}) no-repeat center center;
   background-size: contain;
 `;

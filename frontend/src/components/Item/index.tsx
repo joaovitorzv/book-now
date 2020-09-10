@@ -1,10 +1,12 @@
 import React from 'react';
 
 import { Container } from './styles';
-import { BlackButton } from '../../GlobalStyles';
+import { BlackButton, BookCover } from '../../GlobalStyles';
 
 import { BagPlus } from '@styled-icons/bootstrap/BagPlus';
 import { RemoveCircle } from '@styled-icons/ionicons-outline/RemoveCircle';
+
+import { convertToLocaleStrig } from '../../utils/bagUtils';
 
 import Book from '../../types/Book';
 
@@ -16,11 +18,11 @@ const Item: React.FC<{
 }> = ({ book, onAddToBag, onRemove, hasInTheBag }) => {
   return (
     <Container>
-      <div className="book-cover"></div>
+      <BookCover bookCoverUrl={book.bookCoverUrl}></BookCover>
 
       <div className="book-info">
         <div className="price-container">
-          <h3>{book.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', })}</h3>
+          <h3>{convertToLocaleStrig(String(book.price))}</h3>
           <span>
             + Envio
           </span>

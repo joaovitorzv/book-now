@@ -12,8 +12,6 @@ const SignUp: React.FC = () => {
     <>
       <Header />
       <Container>
-
-
         <form>
           <div className="inputs">
             <h2>Entre na sua conta</h2>

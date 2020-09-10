@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 import { Container } from './styles';
 import { RadiusButton } from '../../GlobalStyles';
@@ -9,68 +9,21 @@ import Bag from '../../components/Bag';
 
 import BagContextManager from '../../components/Bag/context/BagContextManager';
 import BagContext from '../../components/Bag/context/BagContext';
-
 import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRight'
 
+import Book from '../../types/Book';
+import api from '../../apis/api';
+
 const Home: React.FC = () => {
-  const books = [
-    {
-      id: 'a',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'b',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'c',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'd',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'e',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'f',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'g',
-      title: "Harry potter and the sorcerers stone at the job",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-  ]
+  const [books, setBooks] = useState<Book[]>([]);
+
+  useEffect(() => {
+    api.get('/books')
+      .then(response => {
+        setBooks(response.data);
+      });
+  }, [])
+
   const { addItem, removeItem, hasInTheBag } = useContext<BagContextManager>(BagContext);
 
   return (

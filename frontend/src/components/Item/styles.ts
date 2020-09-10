@@ -44,6 +44,11 @@ export const Container = styled.div`
 
     .book-description {
       margin: 10px 0;
+      width: 300px;
+
+      @media (min-width: 630px) {
+        width: 200px;
+      }
 
       h3 {
         font-size: 1.2em;

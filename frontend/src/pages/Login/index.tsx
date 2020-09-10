@@ -52,7 +52,7 @@ const Login: React.FC = () => {
   const [formStatus, setFormStatus] = useState<IFormStatus>({
     message: '',
     type: '',
-  })
+  });
 
   const history = useHistory();
   const { signIn } = useAuth();
