@@ -3,6 +3,8 @@ import { container } from 'tsyringe';
 import { classToClass } from 'class-transformer';
 
 import CreateOrderService from '@modules/orders/services/CreateOrderService';
+import ShowOrdersService from '@modules/orders/services/ShowOrdersService';
+import ShowUserService from '@modules/users/services/ShowUserService';
 
 class OrdersController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -14,6 +16,17 @@ class OrdersController {
     const order = await createOrder.execute({ customer_id, books_id });
 
     return response.status(200).json(classToClass(order));
+  }
+
+  public async index(request: Request, response: Response): Promise<Response> {
+    const { id: customer_id } = request.user;
+
+    const getOrders = container.resolve(ShowOrdersService);
+    const getUser = container.resolve(ShowUserService);
+
+    const orders = await getOrders.execute({ customer_id });
+
+    return response.status(200).json(classToClass(orders));
   }
 }
 

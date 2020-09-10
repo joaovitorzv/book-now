@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 
 import { celebrate, Segments, Joi } from 'celebrate';
 import OrdersController from '../controllers/OrdersController';
@@ -20,8 +20,14 @@ ordersRouter.post(
   ordersController.create,
 )
 
-ordersRouter.get('/', (req: Request, res: Response) => {
-  res.json('Working flilho')
-})
+ordersRouter.get(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      customer_id: Joi.string().required(),
+    },
+  }),
+  ordersController.index,
+)
 
 export default ordersRouter; 
