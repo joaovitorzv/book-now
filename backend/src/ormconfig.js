@@ -2,15 +2,12 @@ modules.export = {
   "type": "postgres",
   "url": process.env.DATABASE_URL,
   "entities": [
-    "./src/modules/**/infra/typeorm/entities/*.ts"
+    "./modules/**/infra/typeorm/entities/*.js"
   ],
   "migrations": [
-    "./src/shared/infra/typeorm/migrations/*.ts"
+    "./shared/infra/typeorm/migrations/*.js"
   ],
   "seeds": [
-    "./src/shared/infra/typeorm/seeds/*.ts"
+    "./shared/infra/typeorm/seeds/*.js"
   ],
-  "cli": {
-    "migrationsDir": "./src/shared/infra/typeorm/migrations"
-  }
 }
