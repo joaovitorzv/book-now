@@ -22,11 +22,9 @@ const App: React.FC = () => {
     dispatch({ type: TYPES.BAG_CLEAR });
   }
   function removeItem(id: string = '0'): void {
-    console.log('clicked no ', id)
     dispatch({ type: TYPES.BAG_REMOVE, id });
   }
   function addItem(book: Book): void {
-    console.log('clicked no ', book.id)
     dispatch({ type: TYPES.BAG_ADD, book });
   }
 

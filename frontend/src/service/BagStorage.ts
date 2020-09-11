@@ -20,7 +20,6 @@ class BagStorage {
   public addBookToBag(book: Book): void {
     let books = [...this.getBooksBag()];
     if (books.find(b => b.id === book.id)) {
-      console.log('Caiu no returne');
       return;
     }
     books = [...this.getBooksBag(), book]

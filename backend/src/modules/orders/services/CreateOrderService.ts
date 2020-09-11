@@ -22,7 +22,6 @@ interface IGetSum {
   num: number;
 }
 
-
 @injectable()
 class CreateOrderService {
   private ordersRepository: IOrdersRepository;
@@ -69,7 +68,7 @@ class CreateOrderService {
 
     const orderTotal = booksOrdered
       .map(book => book.price)
-      .reduce((accumulator, currentValue) => accumulator + Math.round(currentValue), 0);
+      .reduce((accumulator, currentValue) => accumulator + parseFloat(String(currentValue)), 0);
 
     console.log(orderTotal);
 
