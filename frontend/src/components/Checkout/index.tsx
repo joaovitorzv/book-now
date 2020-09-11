@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Container } from './styles';
-
 import { BlackButton } from '../../GlobalStyles';
 import { BagCheck } from '@styled-icons/bootstrap/BagCheck'
 
 import BagContext from '../Bag/context/BagContext';
 import { getTotalBagValue } from '../../utils/bagUtils';
 
+import api from '../../apis/api';
 
 const delivery = {
   defaultPrice: 14.75,
@@ -15,11 +16,30 @@ const delivery = {
 }
 
 const Checkout: React.FC = () => {
+  const history = useHistory();
   const { books } = useContext(BagContext);
 
   const totalBagValue = getTotalBagValue(books);
   const totalDelivery = totalBagValue > delivery.discountAbove ? 0 : delivery.defaultPrice;
   const totalOrder = totalBagValue + totalDelivery;
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleCheckout = async () => {
+    setIsSubmitting(true);
+    let booksId: string[] = [];
+    books.map(book => booksId.push(book.id));
+
+    try {
+      await api.post('/orders', {
+        books_id: booksId,
+      });
+
+      history.push('/orders');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <Container>
@@ -52,7 +72,9 @@ const Checkout: React.FC = () => {
           </span>
         </div>
       </div>
-      <BlackButton>Finalizar pedido <BagCheck size={30} /></BlackButton>
+      <BlackButton onClick={() => handleCheckout()}>
+        {isSubmitting ? "Finalizando pedido..." : "Finalizar pedido"} <BagCheck size={30} />
+      </BlackButton>
     </Container>
   );
 }

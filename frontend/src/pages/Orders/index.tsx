@@ -1,60 +1,41 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
 
 import Header from '../../components/Header';
 import OrderItem from '../../components/OrderItem';
 
 import { Container, OrderContainer } from './styles';
 
+import api from '../../apis/api';
+
 const Orders: React.FC = () => {
-  const books = [
-    {
-      id: 'a',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'b',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'c',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'd',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
+  const [orders, setOrders] = useState([])
+
+  useEffect(() => {
+    try {
+      api.get('/orders')
+        .then(response => {
+          setOrders(response.data);
+        })
+    } catch (error) {
+      console.log(error);
     }
-  ]
+  }, [])
 
   return (
     <>
       <Header />
-
       <Container>
         <h1>Seus pedidos</h1>
 
         <OrderContainer>
-          <OrderItem />
-
-          <OrderItem />
-
-          <OrderItem />
+          {orders.length > 0 ?
+            orders.map(order => (
+              <OrderItem
+                order={order}
+              />
+            ))
+            : <p>Você ainda não tem pedidos</p>
+          }
         </OrderContainer>
       </Container>
     </>

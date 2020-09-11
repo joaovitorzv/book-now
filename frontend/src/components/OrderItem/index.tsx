@@ -3,42 +3,21 @@ import React, { useState } from 'react';
 import { Container, Order, ShowItems, OrderItems } from './styles';
 import { BookCover } from '../../GlobalStyles';
 
-const OrderItem: React.FC = () => {
-  const books = [
-    {
-      id: 'a',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'b',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'c',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    },
-    {
-      id: 'd',
-      title: "Harry potter and the sorcerers stone",
-      author: "JK Rolling",
-      price: 19.90,
-      bookCoverUrl: 'https://images-na.ssl-images-amazon.com/images/I/61CxJAPauWL._AC_SL1010_.jpg',
-      category: 'Atemporal • Drama • Divertido • Conteúdo relevante',
-    }
-  ]
+import { convertToLocaleStrig, formatDate } from '../../utils/bagUtils';
 
+interface Order {
+  books_ordered: string[];
+  order_total: string;
+  created_at: Date;
+  customer: {
+    name: string;
+    email: string;
+  }
+}
+
+const OrderItem: React.FC<{
+  order: Order
+}> = ({ order }) => {
   const [showItems, setShowItems] = useState(false);
 
   return (
@@ -46,30 +25,29 @@ const OrderItem: React.FC = () => {
       <Order>
         <div className="between-items">
           <h3>Pedido realizado</h3>
-          <label>19/05/2020</label>
+          <label>{formatDate(order.created_at)}</label>
         </div>
 
         <ShowItems onClick={() => showItems ? setShowItems(false) : setShowItems(true)}>
           Ver items
         </ShowItems>
         <OrderItems isShown={showItems} >
-          <BookCover />
-          <BookCover />
-          <BookCover />
-          <BookCover />
+          {order.books_ordered.map(bookCoverUrl => (
+            <BookCover bookCoverUrl={bookCoverUrl} />
+          ))}
         </OrderItems>
 
         <div className="customer-details">
           <label>Entregue para:</label>
-          <p>João vitor veras</p>
+          <p>{order.customer.name}</p>
           <label>email:</label>
-          <p>resetgamer1@gmail.com</p>
+          <p>{order.customer.email}</p>
         </div>
 
         <div className="between-items order-total">
 
           <label>Total Pago: </label>
-          <p>R$ 27,78</p>
+          <p>{convertToLocaleStrig(order.order_total)}</p>
         </div>
       </Order>
     </Container>

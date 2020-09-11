@@ -6,6 +6,7 @@ import { RadiusButton } from '../../GlobalStyles';
 import Header from '../../components/Header';
 import Item from '../../components/Item';
 import Bag from '../../components/Bag';
+import Footer from '../../components/Footer';
 
 import BagContextManager from '../../components/Bag/context/BagContextManager';
 import BagContext from '../../components/Bag/context/BagContext';
@@ -47,7 +48,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="section-title">
-          <h4>OS MAIS AMADOS</h4>
+          <h4>LIVROS DISPONÍVEIS</h4>
         </div>
 
         <div className="best-sellers">
@@ -63,6 +64,8 @@ const Home: React.FC = () => {
         </div>
         <Bag />
       </Container>
+
+      <Footer />
     </>
   )
 }

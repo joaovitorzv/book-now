@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-import { Menu } from '@styled-icons/boxicons-regular/Menu';
-import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline';
+
 
 export const Container = styled.div``;
 
@@ -9,22 +8,12 @@ type Props = {
   isOpen: boolean;
 }
 
-export const Hamburger = styled(Menu)`
+export const Hamburger = styled.button`
   width: 40px;
   height: 40px;
 
-  > path {
-    fill: var(--dark-gray)
-  }
-`;
-
-export const Close = styled(CloseOutline)`
-  width: 40px;
-  height: 40px;
-
-  > path {
-    fill: var(--dark-gray);
-  }
+  background-color: transparent;
+  border: none;
 `;
 
 export const MenuContent = styled.div`
@@ -48,6 +37,7 @@ export const MenuContent = styled.div`
 
     h3 {
       font-weight: 400;
+      font-size: 24px;
     }
   }
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, MenuButton } from './styles';
 import { Anchor } from '../../GlobalStyles';
 
-import Menu from '../Menu';
+import MenuHamburger from '../MenuHamburger';
 
 const Header: React.FC = () => {
 
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         <h1>BOOKnow</h1>
       </Anchor>
       <MenuButton>
-        <Menu />
+        <MenuHamburger />
       </MenuButton>
     </Container>
   );

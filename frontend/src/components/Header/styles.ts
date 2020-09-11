@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   background-color: var(--secondary-white);
 
-  padding: 10px;
+  padding: 10px 25px;
 
   h1 {
     color: var(--secondary);

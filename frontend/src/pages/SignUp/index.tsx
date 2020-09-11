@@ -9,7 +9,7 @@ import { Input, BlackButton, Anchor, ErrorText } from '../../GlobalStyles';
 import Header from '../../components/Header';
 import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRight'
 
-import { IFormStatus, IFormStatusProps, formStatusProps } from '../../types/IFormStatus';
+import { IFormStatus, formStatusProps } from '../../types/IFormStatus';
 
 import api from '../../apis/api';
 

@@ -3,7 +3,6 @@ import React, { useState, useCallback } from 'react';
 import * as Yup from 'yup';
 import { Formik, Field, Form, FormikProps } from 'formik'
 import { useAuth } from '../../hooks/auth';
-import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/Header';
 
@@ -11,7 +10,7 @@ import { Container } from './styles';
 import { Input, BlackButton, Anchor, ErrorText } from '../../GlobalStyles';
 import { KeyboardArrowRight } from '@styled-icons/material-sharp/KeyboardArrowRight'
 
-import { IFormStatus, IFormStatusProps, formStatusProps } from '../../types/IFormStatus';
+import { IFormStatus, formStatusProps } from '../../types/IFormStatus';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -31,8 +30,6 @@ const Login: React.FC = () => {
     message: '',
     type: '',
   });
-
-  const history = useHistory();
   const { signIn } = useAuth();
 
   const handleSubmit = useCallback(
@@ -44,7 +41,7 @@ const Login: React.FC = () => {
         setDisplayFormStatus(true);
         setSubmitting(false);
       }
-    }, [signIn, history],
+    }, [signIn],
   );
 
   return (
