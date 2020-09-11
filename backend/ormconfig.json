@@ -1,0 +1,11 @@
+{
+  "entities": [
+    "./modules/**/infra/typeorm/entities/*.ts"
+  ],
+  "migrations": [
+    "./shared/infra/typeorm/migrations/*.ts"
+  ],
+  "seeds": [
+    "./shared/infra/typeorm/seeds/*.ts"
+  ]
+}
