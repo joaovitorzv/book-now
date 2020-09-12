@@ -9,9 +9,9 @@ var _jsonwebtoken = require("jsonwebtoken");
 
 var _tsyringe = require("tsyringe");
 
-var _auth = _interopRequireDefault(require("../../../config/auth"));
+var _auth = _interopRequireDefault(require("../../../../dist/config/auth"));
 
-var _AppError = _interopRequireDefault(require("../../../shared/errors/AppError"));
+var _AppError = _interopRequireDefault(require("../../../../dist/shared/errors/AppError"));
 
 var _dec, _class;
 

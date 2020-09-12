@@ -2,13 +2,13 @@
 
 var _tsyringe = require("tsyringe");
 
-require("../../modules/users/providers");
+require("../../../dist/modules/users/providers");
 
-var _UsersRepository = _interopRequireDefault(require("../../modules/users/infra/typeorm/repositories/UsersRepository"));
+var _UsersRepository = _interopRequireDefault(require("../../../dist/modules/users/infra/typeorm/repositories/UsersRepository"));
 
-var _BooksRepository = _interopRequireDefault(require("../../modules/books/infra/typeorm/repositories/BooksRepository"));
+var _BooksRepository = _interopRequireDefault(require("../../../dist/modules/books/infra/typeorm/repositories/BooksRepository"));
 
-var _OrdersRepository = _interopRequireDefault(require("../../modules/orders/infra/typeorm/repositories/OrdersRepository"));
+var _OrdersRepository = _interopRequireDefault(require("../../../dist/modules/orders/infra/typeorm/repositories/OrdersRepository"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

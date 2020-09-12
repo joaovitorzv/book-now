@@ -9,7 +9,7 @@ var _tsyringe = require("tsyringe");
 
 var _classTransformer = require("class-transformer");
 
-var _AuthenticateUserService = _interopRequireDefault(require("../../../services/AuthenticateUserService"));
+var _AuthenticateUserService = _interopRequireDefault(require("../../../../../../dist/modules/users/services/AuthenticateUserService"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

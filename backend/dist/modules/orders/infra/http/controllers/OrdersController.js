@@ -9,11 +9,11 @@ var _tsyringe = require("tsyringe");
 
 var _classTransformer = require("class-transformer");
 
-var _CreateOrderService = _interopRequireDefault(require("../../../services/CreateOrderService"));
+var _CreateOrderService = _interopRequireDefault(require("../../../../../../dist/modules/orders/services/CreateOrderService"));
 
-var _ShowOrdersService = _interopRequireDefault(require("../../../services/ShowOrdersService"));
+var _ShowOrdersService = _interopRequireDefault(require("../../../../../../dist/modules/orders/services/ShowOrdersService"));
 
-var _ShowUserService = _interopRequireDefault(require("../../../../users/services/ShowUserService"));
+var _ShowUserService = _interopRequireDefault(require("../../../../../../dist/modules/users/services/ShowUserService"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

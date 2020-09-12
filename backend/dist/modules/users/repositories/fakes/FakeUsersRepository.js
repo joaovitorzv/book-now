@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _uuidv = require("uuidv4");
 
-var _User = _interopRequireDefault(require("../../infra/typeorm/entities/User"));
+var _User = _interopRequireDefault(require("../../../../../dist/modules/users/infra/typeorm/entities/User"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

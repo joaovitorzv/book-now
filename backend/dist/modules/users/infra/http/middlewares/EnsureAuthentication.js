@@ -7,9 +7,9 @@ exports.default = ensureAuthentication;
 
 var _jsonwebtoken = require("jsonwebtoken");
 
-var _auth = _interopRequireDefault(require("../../../../../config/auth"));
+var _auth = _interopRequireDefault(require("../../../../../../dist/config/auth"));
 
-var _AppError = _interopRequireDefault(require("../../../../../shared/errors/AppError"));
+var _AppError = _interopRequireDefault(require("../../../../../../dist/shared/errors/AppError"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

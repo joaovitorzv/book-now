@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _typeorm = require("typeorm");
 
-var _User = _interopRequireDefault(require("../../../../users/infra/typeorm/entities/User"));
+var _User = _interopRequireDefault(require("../../../../../../dist/modules/users/infra/typeorm/entities/User"));
 
 var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 

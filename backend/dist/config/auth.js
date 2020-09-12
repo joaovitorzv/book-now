@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _environment = require("../shared/utils/environment");
+var _environment = require("../../dist/shared/utils/environment");
 
 var _default = {
   secret: _environment.AUTH_SECRET,

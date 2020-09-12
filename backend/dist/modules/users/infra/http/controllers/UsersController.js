@@ -9,7 +9,7 @@ var _tsyringe = require("tsyringe");
 
 var _classTransformer = require("class-transformer");
 
-var _CreateUserService = _interopRequireDefault(require("../../../services/CreateUserService"));
+var _CreateUserService = _interopRequireDefault(require("../../../../../../dist/modules/users/services/CreateUserService"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

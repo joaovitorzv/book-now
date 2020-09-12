@@ -16,9 +16,9 @@ var _AppError = _interopRequireDefault(require("../../errors/AppError"));
 
 var _routes = _interopRequireDefault(require("./routes"));
 
-require("../typeorm");
+require("../../../../dist/shared/infra/typeorm");
 
-require("../../container");
+require("../../../../dist/shared/container");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

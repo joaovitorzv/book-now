@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _typeorm = require("typeorm");
 
-var _Order = _interopRequireDefault(require("../entities/Order"));
+var _Order = _interopRequireDefault(require("../../../../../../dist/modules/orders/infra/typeorm/entities/Order"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

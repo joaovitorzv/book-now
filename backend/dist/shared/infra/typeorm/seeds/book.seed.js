@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _Book = _interopRequireDefault(require("../../../../modules/books/infra/typeorm/entities/Book"));
+var _Book = _interopRequireDefault(require("../../../../../dist/modules/books/infra/typeorm/entities/Book"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

@@ -9,7 +9,7 @@ var _tsyringe = require("tsyringe");
 
 var _classTransformer = require("class-transformer");
 
-var _CreateBooksService = _interopRequireDefault(require("../../../services/CreateBooksService"));
+var _CreateBooksService = _interopRequireDefault(require("../../../../../../dist/modules/books/services/CreateBooksService"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

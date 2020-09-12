@@ -11,7 +11,7 @@ var _celebrate = require("celebrate");
 
 var _OrdersController = _interopRequireDefault(require("../controllers/OrdersController"));
 
-var _EnsureAuthentication = _interopRequireDefault(require("../../../../users/infra/http/middlewares/EnsureAuthentication"));
+var _EnsureAuthentication = _interopRequireDefault(require("../../../../../../dist/modules/users/infra/http/middlewares/EnsureAuthentication"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
