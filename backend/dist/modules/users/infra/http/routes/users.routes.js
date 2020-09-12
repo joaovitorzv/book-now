@@ -1,22 +1,31 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var _a;
-var express_1 = require("express");
-var celebrate_1 = require("celebrate");
-var UsersController_1 = __importDefault(require("../controllers/UsersController"));
-var usersRouter = express_1.Router();
-var usersController = new UsersController_1.default();
-usersRouter.post('/', celebrate_1.celebrate((_a = {},
-    _a[celebrate_1.Segments.BODY] = {
-        name: celebrate_1.Joi.string().required(),
-        email: celebrate_1.Joi.string().email().required(),
-        password: celebrate_1.Joi.string().required(),
-    },
-    _a)), usersController.create);
-usersRouter.get('/test', function (req, res) {
-    res.status(200).json({ serverIsUp: true });
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-exports.default = usersRouter;
+exports.default = void 0;
+
+var _express = require("express");
+
+var _celebrate = require("celebrate");
+
+var _UsersController = _interopRequireDefault(require("../controllers/UsersController"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const usersRouter = (0, _express.Router)();
+const usersController = new _UsersController.default();
+usersRouter.post('/', (0, _celebrate.celebrate)({
+  [_celebrate.Segments.BODY]: {
+    name: _celebrate.Joi.string().required(),
+    email: _celebrate.Joi.string().email().required(),
+    password: _celebrate.Joi.string().required()
+  }
+}), usersController.create);
+usersRouter.get('/test', (req, res) => {
+  res.status(200).json({
+    serverIsUp: true
+  });
+});
+var _default = usersRouter;
+exports.default = _default;

@@ -1,24 +1,32 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var _a, _b;
-var express_1 = require("express");
-var celebrate_1 = require("celebrate");
-var OrdersController_1 = __importDefault(require("../controllers/OrdersController"));
-var EnsureAuthentication_1 = __importDefault(require("@modules/users/infra/http/middlewares/EnsureAuthentication"));
-var ordersRouter = express_1.Router();
-var ordersController = new OrdersController_1.default();
-ordersRouter.use(EnsureAuthentication_1.default);
-ordersRouter.post('/', celebrate_1.celebrate((_a = {},
-    _a[celebrate_1.Segments.BODY] = {
-        books_id: celebrate_1.Joi.array().required(),
-    },
-    _a)), ordersController.create);
-ordersRouter.get('/', celebrate_1.celebrate((_b = {},
-    _b[celebrate_1.Segments.BODY] = {
-        customer_id: celebrate_1.Joi.string().required(),
-    },
-    _b)), ordersController.index);
-exports.default = ordersRouter;
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _express = require("express");
+
+var _celebrate = require("celebrate");
+
+var _OrdersController = _interopRequireDefault(require("../controllers/OrdersController"));
+
+var _EnsureAuthentication = _interopRequireDefault(require("../../../../users/infra/http/middlewares/EnsureAuthentication"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const ordersRouter = (0, _express.Router)();
+const ordersController = new _OrdersController.default();
+ordersRouter.use(_EnsureAuthentication.default);
+ordersRouter.post('/', (0, _celebrate.celebrate)({
+  [_celebrate.Segments.BODY]: {
+    books_id: _celebrate.Joi.array().required()
+  }
+}), ordersController.create);
+ordersRouter.get('/', (0, _celebrate.celebrate)({
+  [_celebrate.Segments.BODY]: {
+    customer_id: _celebrate.Joi.string().required()
+  }
+}), ordersController.index);
+var _default = ordersRouter;
+exports.default = _default;

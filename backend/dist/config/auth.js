@@ -1,7 +1,14 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var environment_1 = require("@shared/utils/environment");
-exports.default = {
-    secret: environment_1.AUTH_SECRET,
-    expiresIn: environment_1.TOKEN_EXPIRATION_TIME,
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _environment = require("../shared/utils/environment");
+
+var _default = {
+  secret: _environment.AUTH_SECRET,
+  expiresIn: _environment.TOKEN_EXPIRATION_TIME
 };
+exports.default = _default;
