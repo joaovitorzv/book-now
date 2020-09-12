@@ -40,6 +40,6 @@ app.use((error, request, response, _) => {
     message: 'Internal server error'
   });
 });
-app.listen(3333, () => {
+app.listen(process.env.PORT || 3333, () => {
   (0, _ora.default)('server running').succeed();
 });
