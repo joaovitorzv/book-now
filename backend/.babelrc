@@ -17,6 +17,10 @@
         "legacy": true
       }
     ],
+    "babel-plugin-parameter-decorator",
+    [
+      "transform-class-properties"
+    ],
     [
       "module-resolver",
       {

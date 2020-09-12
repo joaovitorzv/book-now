@@ -8,8 +8,8 @@ import { errors } from 'celebrate';
 import AppError from '../../errors/AppError';
 import routes from './routes';
 
-import '@shared/infra/typeorm';
-import '@shared/container';
+import '../typeorm'
+import '../../container'
 
 const app = express();
 

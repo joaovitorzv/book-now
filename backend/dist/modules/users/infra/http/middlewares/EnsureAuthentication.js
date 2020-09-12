@@ -1,37 +1,27 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = ensureAuthentication;
-
-var _jsonwebtoken = require("jsonwebtoken");
-
-var _auth = _interopRequireDefault(require("../../../../../../dist/config/auth"));
-
-var _AppError = _interopRequireDefault(require("../../../../../../dist/shared/errors/AppError"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsonwebtoken_1 = require("jsonwebtoken");
+var auth_1 = __importDefault(require("../../../../../config/auth"));
+var AppError_1 = __importDefault(require("../../../../../shared/errors/AppError"));
 function ensureAuthentication(request, response, next) {
-  const authHeader = request.headers.authorization;
-
-  if (!authHeader) {
-    throw new _AppError.default('JWT token is missing.', 401);
-  }
-
-  const [, token] = authHeader.split(' ');
-
-  try {
-    const decoded = (0, _jsonwebtoken.verify)(token, _auth.default.secret);
-    const {
-      sub
-    } = decoded;
-    request.user = {
-      id: sub
-    };
-    return next();
-  } catch (error) {
-    throw new _AppError.default('Invalid token.', 401);
-  }
+    var authHeader = request.headers.authorization;
+    if (!authHeader) {
+        throw new AppError_1.default('JWT token is missing.', 401);
+    }
+    var _a = authHeader.split(' '), token = _a[1];
+    try {
+        var decoded = jsonwebtoken_1.verify(token, auth_1.default.secret);
+        var sub = decoded.sub;
+        request.user = {
+            id: sub,
+        };
+        return next();
+    }
+    catch (error) {
+        throw new AppError_1.default('Invalid token.', 401);
+    }
 }
+exports.default = ensureAuthentication;

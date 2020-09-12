@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { classToClass } from 'class-transformer';
 
-import CreateOrderService from '@modules/orders/services/CreateOrderService';
-import ShowOrdersService from '@modules/orders/services/ShowOrdersService';
-import ShowUserService from '@modules/users/services/ShowUserService';
+import CreateOrderService from '../../../../orders/services/CreateOrderService';
+import ShowOrdersService from '../../../../orders/services/ShowOrdersService';
+import ShowUserService from '../../../../users/services/ShowUserService';
 
 class OrdersController {
   public async create(request: Request, response: Response): Promise<Response> {

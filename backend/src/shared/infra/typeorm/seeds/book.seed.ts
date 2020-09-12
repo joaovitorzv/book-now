@@ -1,7 +1,7 @@
 import { Connection } from 'typeorm';
 
 import { Seeder, Factory } from 'typeorm-seeding';
-import Book from '@modules/books/infra/typeorm/entities/Book';
+import Book from '../../../../modules/books/infra/typeorm/entities/Book';
 
 const BooksData = [
   {

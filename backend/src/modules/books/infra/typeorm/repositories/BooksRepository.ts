@@ -1,7 +1,8 @@
+import "reflect-metadata";
 import { getRepository, Repository, Any } from 'typeorm'
-import Book from '@modules/books/infra/typeorm/entities/Book';
+import Book from '../../../../books/infra/typeorm/entities/Book';
 
-import IBooksRepository from '@modules/books/repositories/IBooksRepository';
+import IBooksRepository from '../../../../books/repositories/IBooksRepository';
 
 class BooksRepository implements IBooksRepository {
   private ormRepository: Repository<Book>;

@@ -1,6 +1,7 @@
-import IBooksRepository from '@modules/books/repositories/IBooksRepository';
+import "reflect-metadata";
+import IBooksRepository from '../../books/repositories/IBooksRepository';
 
-import Book from '@modules/books/infra/typeorm/entities/Book';
+import Book from '../../books/infra/typeorm/entities/Book';
 import { injectable, inject } from 'tsyringe';
 
 @injectable()

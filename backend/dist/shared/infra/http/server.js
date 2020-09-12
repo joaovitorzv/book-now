@@ -1,45 +1,35 @@
 "use strict";
-
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
-
 require("express-async-errors");
-
-var _express = _interopRequireDefault(require("express"));
-
-var _ora = _interopRequireDefault(require("ora"));
-
-var _cors = _interopRequireDefault(require("cors"));
-
-var _celebrate = require("celebrate");
-
-var _AppError = _interopRequireDefault(require("../../errors/AppError"));
-
-var _routes = _interopRequireDefault(require("./routes"));
-
-require("../../../../dist/shared/infra/typeorm");
-
-require("../../../../dist/shared/container");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const app = (0, _express.default)();
-app.use((0, _cors.default)());
-app.use(_express.default.json());
-app.use(_routes.default);
-app.use((0, _celebrate.errors)());
-app.use((error, request, response, _) => {
-  if (error instanceof _AppError.default) {
-    return response.status(error.statusCode).json({
-      status: 'error',
-      message: error.message
+var express_1 = __importDefault(require("express"));
+var ora_1 = __importDefault(require("ora"));
+var cors_1 = __importDefault(require("cors"));
+var celebrate_1 = require("celebrate");
+var AppError_1 = __importDefault(require("../../errors/AppError"));
+var routes_1 = __importDefault(require("./routes"));
+require("../typeorm");
+require("../../container");
+var app = express_1.default();
+app.use(cors_1.default());
+app.use(express_1.default.json());
+app.use(routes_1.default);
+app.use(celebrate_1.errors());
+app.use(function (error, request, response, _) {
+    if (error instanceof AppError_1.default) {
+        return response.status(error.statusCode).json({
+            status: 'error',
+            message: error.message,
+        });
+    }
+    return response.status(500).json({
+        status: 'error',
+        message: 'Internal server error'
     });
-  }
-
-  return response.status(500).json({
-    status: 'error',
-    message: 'Internal server error'
-  });
 });
-app.listen(process.env.PORT || 3333, () => {
-  (0, _ora.default)('server running').succeed();
+app.listen(process.env.PORT || 3333, function () {
+    ora_1.default('server running').succeed();
 });

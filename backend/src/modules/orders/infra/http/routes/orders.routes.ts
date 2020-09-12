@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { celebrate, Segments, Joi } from 'celebrate';
 import OrdersController from '../controllers/OrdersController';
 
-import EnsureAuthentication from '@modules/users/infra/http/middlewares/EnsureAuthentication';
+import EnsureAuthentication from '../../../../users/infra/http/middlewares/EnsureAuthentication';
 
 const ordersRouter = Router();
 const ordersController = new OrdersController();

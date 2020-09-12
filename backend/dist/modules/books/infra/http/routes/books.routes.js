@@ -1,18 +1,11 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _express = require("express");
-
-var _BooksController = _interopRequireDefault(require("../controllers/BooksController"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const booksRouter = (0, _express.Router)();
-const booksController = new _BooksController.default();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var BooksController_1 = __importDefault(require("../controllers/BooksController"));
+var booksRouter = express_1.Router();
+var booksController = new BooksController_1.default();
 booksRouter.get('/', booksController.index);
-var _default = booksRouter;
-exports.default = _default;
+exports.default = booksRouter;

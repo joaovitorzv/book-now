@@ -1,11 +1,11 @@
 import { inject, injectable } from 'tsyringe';
 
-import AppError from '@shared/errors/AppError';
+import AppError from '../../../shared/errors/AppError';
 
-import Order from '@modules/orders/infra/typeorm/entities/Order';
-import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
-import IUsersRepository from '@modules/users/repositories/IUsersRepository';
-import IBooksRepository from '@modules/books/repositories/IBooksRepository';
+import Order from '../../orders/infra/typeorm/entities/Order';
+import IOrdersRepository from '../../orders/repositories/IOrdersRepository';
+import IUsersRepository from '../../users/repositories/IUsersRepository';
+import IBooksRepository from '../../books/repositories/IBooksRepository';
 
 enum delivery {
   defaultPrice = 14.75,

@@ -2,7 +2,7 @@ import { Request, Response, RequestHandler } from 'express';
 import { container } from 'tsyringe';
 import { classToClass } from 'class-transformer';
 
-import CreateBookService from '@modules/books/services/CreateBooksService';
+import CreateBookService from '../../../../books/services/CreateBooksService';
 
 class BooksController {
   public async index(request: Request, response: Response): Promise<Response> {
