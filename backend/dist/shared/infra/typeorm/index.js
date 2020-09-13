@@ -6,22 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 var typeorm_1 = require("typeorm");
 var book_seed_1 = __importDefault(require("./seeds/book.seed"));
-var config = {
-    "type": "postgres",
-    "url": process.env.DATABASE_URL,
-    "entities": [
-        "dist/modules/**/infra/typeorm/entities/*.ts"
-    ],
-    "migrations": [
-        "dist/shared/infra/typeorm/migrations/*.ts"
-    ],
-    "seeds": [
-        "dist/shared/infra/typeorm/seeds/*.ts"
-    ],
-    "cli": {
-        "migrationsDir": "./src/shared/infra/typeorm/migrations"
-    }
-};
 var createBooks = new book_seed_1.default();
-typeorm_1.createConnection(config);
+typeorm_1.createConnection();
 createBooks.run;

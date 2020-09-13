@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import IBooksRepository from '../../books/repositories/IBooksRepository';
 
 import Book from '../../books/infra/typeorm/entities/Book';

@@ -1,10 +1,6 @@
-{
+module.exports = {
   "type": "postgres",
-  "host": "ec2-3-226-231-4.compute-1.amazonaws.com",
-  "port": 5432,
-  "username": "lcfxrgpxkiyxzv",
-  "password": "f5e538f009e9600500bcf441054a014cf05df353c72c5959dad25a73b936a5f0",
-  "database": "dbhq9jl52c9ba6",
+  "url": process.env.DATABASE_URL,
   "entities": [
     "dist/modules/**/infra/typeorm/entities/*.js"
   ],

@@ -6,6 +6,12 @@ import CreateBookService from '../../../../books/services/CreateBooksService';
 
 class BooksController {
   public async index(request: Request, response: Response): Promise<Response> {
+
+    try {
+      const getBooks = container.resolve(CreateBookService);
+    } catch (err) {
+      console.log(err);
+    }
     const getBooks = container.resolve(CreateBookService);
 
     const user = await getBooks.execute();

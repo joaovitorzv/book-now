@@ -40,17 +40,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var tsyringe_1 = require("tsyringe");
 var class_transformer_1 = require("class-transformer");
-var AuthenticateUserService_1 = __importDefault(require("../../../../users/services/AuthenticateUserService"));
+var AuthenticateUserService_1 = __importDefault(require("../../../services/AuthenticateUserService"));
 var SessionsController = /** @class */ (function () {
     function SessionsController() {
     }
     SessionsController.prototype.create = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, email, password, authenticateUser, _b, user, token;
+            var _a, email, password, authenticateUser_1, authenticateUser, _b, user, token;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
                         _a = request.body, email = _a.email, password = _a.password;
+                        try {
+                            authenticateUser_1 = tsyringe_1.container.resolve(AuthenticateUserService_1.default);
+                        }
+                        catch (err) {
+                            console.log('caiu no erro');
+                            console.log(err);
+                        }
                         authenticateUser = tsyringe_1.container.resolve(AuthenticateUserService_1.default);
                         return [4 /*yield*/, authenticateUser.execute({ email: email, password: password })];
                     case 1:

@@ -46,10 +46,16 @@ var BooksController = /** @class */ (function () {
     }
     BooksController.prototype.index = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
-            var getBooks, user;
+            var getBooks_1, getBooks, user;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        try {
+                            getBooks_1 = tsyringe_1.container.resolve(CreateBooksService_1.default);
+                        }
+                        catch (err) {
+                            console.log(err);
+                        }
                         getBooks = tsyringe_1.container.resolve(CreateBooksService_1.default);
                         return [4 /*yield*/, getBooks.execute()];
                     case 1:

@@ -47,7 +47,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-require("reflect-metadata");
 var tsyringe_1 = require("tsyringe");
 var CreateBookService = /** @class */ (function () {
     function CreateBookService(booksRepository) {
