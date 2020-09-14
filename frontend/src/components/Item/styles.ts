@@ -44,7 +44,7 @@ export const Container = styled.div`
 
     .book-description {
       margin: 10px 0;
-      width: 300px;
+      max-width: 200px;
 
       @media (min-width: 630px) {
         width: 200px;
