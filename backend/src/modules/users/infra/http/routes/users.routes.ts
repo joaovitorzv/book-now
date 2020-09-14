@@ -17,10 +17,6 @@ usersRouter.post(
     },
   }),
   usersController.create,
-)
-
-usersRouter.get('/test', (req: Request, res: Response) => {
-  res.status(200).json({ serverIsUp: true });
-})
+);
 
 export default usersRouter;
