@@ -44,7 +44,7 @@ const SignUp: React.FC = () => {
         password: data.password
       });
 
-      history.push('/');
+      history.push('/login');
     } catch (error) {
       setFormStatus(formStatusProps.invalidEmail);
       setDisplayFormStatus(true);
