@@ -70,8 +70,6 @@ class CreateOrderService {
       .map(book => book.price)
       .reduce((accumulator, currentValue) => accumulator + parseFloat(String(currentValue)), 0);
 
-    console.log(orderTotal);
-
     const totalDelivery = orderTotal > delivery.discountAbove ? 0 : delivery.defaultPrice;
 
     const order = await this.ordersRepository.create({
