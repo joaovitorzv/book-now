@@ -16,13 +16,13 @@ export default function ensureAuthentication(
   response: Response,
   next: NextFunction,
 ): void {
-  const authHeader = request.headers.authorization;
+  const authHeader = request.headers.authorization
 
   if (!authHeader) {
-    throw new AppError('JWT token is missing.', 401);
+    throw new AppError('JWT token is missing', 401);
   }
 
-  const [, token] = authHeader.split(' ');
+  const [token] = authHeader.split(' ');
 
   try {
     const decoded = verify(token, authConfig.secret);
