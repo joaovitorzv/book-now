@@ -26,6 +26,7 @@ const Checkout: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCheckout = async () => {
+
     setIsSubmitting(true);
     let booksId: string[] = [];
     books.map(book => booksId.push(book.id));

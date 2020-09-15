@@ -4,19 +4,10 @@ import { Container, Order, ShowItems, OrderItems } from './styles';
 import { BookCover } from '../../GlobalStyles';
 
 import { convertToLocaleStrig, formatDate } from '../../utils/bagUtils';
-
-interface Order {
-  books_ordered: string[];
-  order_total: string;
-  created_at: Date;
-  customer: {
-    name: string;
-    email: string;
-  }
-}
+import IOrder from '../../types/IOrder';
 
 const OrderItem: React.FC<{
-  order: Order
+  order: IOrder
 }> = ({ order }) => {
   const [showItems, setShowItems] = useState(false);
 
@@ -33,7 +24,7 @@ const OrderItem: React.FC<{
         </ShowItems>
         <OrderItems isShown={showItems} >
           {order.books_ordered.map(bookCoverUrl => (
-            <BookCover bookCoverUrl={bookCoverUrl} />
+            <BookCover key={bookCoverUrl} bookCoverUrl={bookCoverUrl} />
           ))}
         </OrderItems>
 

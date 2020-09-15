@@ -31,6 +31,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     const token = localStorage.getItem('@booknow:token');
     const user = localStorage.getItem('@booknow:user');
 
+    const parsedToken = JSON.stringify(token);
+
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`
 
