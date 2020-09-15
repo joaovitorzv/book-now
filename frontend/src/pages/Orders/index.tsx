@@ -7,8 +7,11 @@ import { Container, OrderContainer } from './styles';
 
 import api from '../../apis/api';
 
+
 const Orders: React.FC = () => {
   const [orders, setOrders] = useState([])
+
+  const token = localStorage.getItem('@booknow:token');
 
   useEffect(() => {
     try {
@@ -19,7 +22,7 @@ const Orders: React.FC = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [])
+  }, [token])
 
   return (
     <>
