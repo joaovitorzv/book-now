@@ -15,6 +15,10 @@ export const Container = styled.footer`
 
   color: white;
 
+  .disclaimer {
+    font-size: 14px;
+  }
+
   a {
     font-weight: bold;
     color: white;

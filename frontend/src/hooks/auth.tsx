@@ -32,7 +32,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     const user = localStorage.getItem('@booknow:user');
 
     if (token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`
+      api.defaults.headers.authorization = `Bearer ${token}`;
 
       return { token, user: JSON.parse(user) };
     }
@@ -51,7 +51,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@booknow:token', token);
     localStorage.setItem('@booknow:user', JSON.stringify(user));
 
-    api.defaults.headers.authorization = `Bearer ${token};`
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setData({ token, user });
   }, []);

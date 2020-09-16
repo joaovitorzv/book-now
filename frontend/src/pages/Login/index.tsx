@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import * as Yup from 'yup';
 import { Formik, Field, Form, FormikProps } from 'formik'
@@ -31,17 +32,20 @@ const Login: React.FC = () => {
     type: '',
   });
   const { signIn } = useAuth();
+  const history = useHistory();
 
   const handleSubmit = useCallback(
     async (data: IFormValues, setSubmitting: Function) => {
       try {
         await signIn({ email: data.email, password: data.password });
+
+        history.push('/');
       } catch (error) {
         setFormStatus(formStatusProps.invalid);
         setDisplayFormStatus(true);
         setSubmitting(false);
       }
-    }, [signIn],
+    }, [signIn, history],
   );
 
   return (

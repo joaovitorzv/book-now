@@ -15,8 +15,6 @@ const Orders: React.FC = () => {
   const token = localStorage.getItem('@booknow:token');
 
   useEffect(() => {
-    console.log(api.defaults.headers.authorization);
-
     try {
       api.get('/orders')
         .then(response => {
@@ -32,16 +30,16 @@ const Orders: React.FC = () => {
       <Header />
       <Container>
         <h1>Seus pedidos</h1>
+        {orders.length <= 0 && <p>Você ainda não tem pedidos</p>}
 
         <OrderContainer>
-          {orders.length > 0 ?
+          {orders.length > 0 &&
             orders.map((order: Order) => (
               <OrderItem
                 order={order}
                 key={order.id}
               />
             ))
-            : <p>Você ainda não tem pedidos</p>
           }
         </OrderContainer>
       </Container>
