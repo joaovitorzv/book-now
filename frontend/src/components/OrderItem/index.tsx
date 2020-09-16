@@ -11,6 +11,8 @@ const OrderItem: React.FC<{
 }> = ({ order }) => {
   const [showItems, setShowItems] = useState(false);
 
+  const orderSum = parseFloat(order.order_total) + parseFloat(order.delivery);
+
   return (
     <Container>
       <Order>
@@ -33,12 +35,13 @@ const OrderItem: React.FC<{
           <p>{order.customer.name}</p>
           <label>email:</label>
           <p>{order.customer.email}</p>
+          <label>Frete:</label>
+          <p>{order.delivery === '0' ? 'Gratis' : convertToLocaleStrig(order.delivery)}</p>
         </div>
 
         <div className="between-items order-total">
-
           <label>Total Pago: </label>
-          <p>{convertToLocaleStrig(order.order_total)}</p>
+          <p>{orderSum.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
         </div>
       </Order>
     </Container>
